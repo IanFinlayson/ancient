@@ -1,0 +1,81 @@
+# This program includes all aspects of the language #
+# This is to test the lexer #
+
+math:real( x:real, y:int, array:int[32] )
+begin
+	x := (x*2.0 + (3.0 / x)) ^ 2.0;
+	y := y % 2;
+
+	i:int;
+	i := 0;
+	while( i <= 31 )
+	begin
+		array[i] := i;
+		i := i + 1;
+	end
+
+	return -x;
+end
+
+addOne:int( x:int)
+	return x + 1;
+
+log:bool( a:bool, b:bool, c:bool )
+begin
+	a := b & c;
+	b := a | c;
+	c := !c;
+
+	some_var_name:bool;
+	e:bool;
+
+	some_var_name := (3 == 4);
+	e := (4 /= 5);
+	a := 2 > 1;
+	b := true;
+
+	return false;
+end
+
+concatenate:int[33]( a:int[16], b:int[16] )
+begin
+	value:int[33];	# this function will not work :/ #
+	x:int;
+	x := a[0];
+	i:int;
+	i := 0;
+
+	while( (x /= 0) & (i<=16) )
+	begin
+		value[i] := x;
+		x := a[i];
+	end
+
+	i2:int;
+	i2 := 0;
+	x := b[0];
+	while( (i2 <= 16) & (x /= 0) )
+	begin
+		value[1] := x;
+		x := b[i];
+	end
+
+	return value;
+end
+
+
+# main does nothing #
+main:int( )
+	return 0;
+
+
+fact:int( x:int )
+begin
+	if( x == 0 )
+		return 1;
+	else
+		return x * fact(x-1);
+end
+
+
+

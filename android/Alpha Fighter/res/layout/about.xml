@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/Layout" android:background="@drawable/bg">
+
+
+
+
+
+
+
+<LinearLayout android:id="@+id/LinearLayout01" android:layout_height="wrap_content" android:layout_width="fill_parent" android:orientation="horizontal" android:paddingLeft="100px"><ImageView android:id="@+id/logo2" android:background="@drawable/logo2" android:scaleType="center" android:layout_height="wrap_content" android:layout_width="wrap_content"></ImageView></LinearLayout><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingLeft="30px" android:paddingRight="30px" android:text="About Alpha Fighter" android:textSize="20px" android:id="@+id/Title"></TextView>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Written by:" android:paddingTop="15px" android:id="@+id/Writtenby"></TextView>
+<TextView android:layout_height="wrap_content" android:text="Anthony Jacobs, ajj05@fsu.edu" android:id="@+id/AnthonyJacobs" android:layout_width="fill_parent" android:paddingLeft="30px"></TextView>
+<TextView android:layout_height="wrap_content" android:id="@+id/IanFinlayson" android:text="Ian Finlayson, finlayso@cs.fsu.edu" android:paddingLeft="30px" android:paddingRight="30px" android:layout_width="fill_parent"></TextView>
+<TextView android:layout_height="wrap_content" android:paddingLeft="30px" android:layout_width="fill_parent" android:text="Omar Ghaznavi, osg08@fsu.edu" android:id="@+id/OmarGhaznavi"></TextView>
+<TextView android:layout_height="wrap_content" android:layout_width="fill_parent" android:paddingLeft="30px" android:text="Sean Easton, easton@cs.fsu.edu" android:id="@+id/SeanEaston"></TextView>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/SpecialThanks" android:text="Special Thanks To:" android:paddingTop="15px"></TextView><TextView android:id="@+id/TextView01" android:layout_height="wrap_content" android:paddingLeft="30px" android:text="NemesisTheory @ Newgrounds.com" android:layout_width="fill_parent"></TextView><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingLeft="30px" android:text="freesound.org" android:id="@+id/freesound"></TextView>
+
+
+
+
+
+<LinearLayout android:id="@+id/LinearLayout02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingLeft="95px" android:paddingTop="15px"><ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/logo1" android:id="@+id/logo2" android:scaleType="center"></ImageView></LinearLayout>
+</LinearLayout>

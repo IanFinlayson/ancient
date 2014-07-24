@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center_horizontal" android:background="@drawable/bg">
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:textColor="#000" android:text="Tic-Tac-Toe" android:textSize="20sp" android:layout_gravity="center_horizontal" android:paddingLeft="100sp" android:paddingBottom="20sp" android:paddingTop="10sp"/>
+
+<ImageView android:id="@+id/ImageView01" android:layout_height="wrap_content" android:layout_width="wrap_content" android:src="@drawable/anim1" android:layout_marginLeft="30sp"></ImageView>
+<TextView android:id="@+id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#000" android:layout_marginLeft="25sp" android:layout_marginTop="20sp" android:text="Game Over"></TextView>
+</LinearLayout>

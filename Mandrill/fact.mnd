@@ -1,0 +1,16 @@
+
+fact:int( x:int )
+begin
+	if( x == 0 )
+		return 1;
+	else
+		return x * fact(x-1);
+end
+
+
+# main does nothing #
+main:int( )
+	return 0;
+
+
+

@@ -1,0 +1,16 @@
+# a.mnd test 1 #
+# if, return, function call, ==, *, - #
+
+fact:int( x:int )
+begin
+	if( x )
+		return 7;
+	else
+		return 11;
+end
+
+main:int( )
+begin
+	printInt( fact(1) );
+	return 0;
+end

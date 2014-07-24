@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg"
+    >
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" android:text="Alpha Fighter" android:textColor="#00ff00" android:textSize="24sp" android:layout_marginLeft="85sp" android:layout_marginBottom="20sp"/>
+<ImageButton android:id="@+id/single" android:layout_width="wrap_content" android:layout_height="wrap_content" android:width="250sp" android:layout_marginBottom="5sp" android:src="@drawable/button1" android:layout_marginLeft="24sp"></ImageButton>
+<ImageButton android:id="@+id/multi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:width="250sp" android:layout_marginBottom="5sp" android:src="@drawable/button2" android:layout_marginLeft="24sp"></ImageButton>
+<ImageButton android:id="@+id/quit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:width="250sp" android:layout_marginBottom="5sp" android:src="@drawable/button3" android:layout_marginLeft="24sp"></ImageButton>
+</LinearLayout>

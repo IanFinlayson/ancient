@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content" android:id="@+id/linlay" android:background="#fff" android:orientation="vertical">
+<LinearLayout android:id="@+id/LinearLayout01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="#fff" android:orientation="horizontal" android:paddingTop="45sp" android:layout_y="320sp"><Button android:text="30" android:textColor="#ff4000" android:textStyle="bold" android:textSize="20px" android:id="@+id/Button01" android:background="@drawable/grenade" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button><Button android:text="10" android:textColor="#ff4000" android:textStyle="bold" android:textSize="20px" android:id="@+id/Button02" android:background="@drawable/grenadelauncher" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button><Button android:text="5" android:id="@+id/Button03" android:textColor="#ff4000" android:textStyle="bold" android:textSize="20px" android:background="@drawable/mortar" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button><Button android:text="5" android:id="@+id/Button04" android:textColor="#ff4000" android:textStyle="bold" android:textSize="20px" android:background="@drawable/landmine" android:layout_width="wrap_content" android:layout_height="wrap_content"></Button></LinearLayout>
+
+
+<Button android:id="@+id/Button05" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/cloak" android:text="20" android:textSize="20sp" android:textColor="#ff4000" android:textStyle="bold"></Button>
+
+<Button android:id="@+id/Button06" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_x="250sp" android:background="@drawable/radar" android:textStyle="bold" android:text="30" android:textColor="#ff4000" android:textSize="20sp"></Button>
+<Button android:id="@+id/Button07" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/armor" android:layout_y="300sp"></Button>
+</AbsoluteLayout>

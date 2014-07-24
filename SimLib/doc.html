@@ -1,0 +1,452 @@
+<html>
+<head>
+<title>SimLib Documentation</title>
+</head>
+
+<body background="back.png" link="#000099" alink="#000099" vlink="#000099"><br />
+<br />
+<table bgcolor="FFFFFF" align="center" width="90%">
+<tr><td>
+<center>
+<img src="logo.png" />
+</center>
+<hr />
+	<a name="#top" />
+	<h3>Table of Contents</h3>
+	<a href="#overview">Overview</a><br />
+	<a href="#app">Sim::App</a><br />
+	<a href="#button">Sim::Button</a><br />
+	<a href="#exception">Sim::Exception</a><br />
+	<a href="#font">Sim::Font</a><br />
+	<a href="#functions">Sim::Functions</a><br />
+	<a href="#image">Sim::Image</a><br />
+	<a href="#soundplayer">Sim::SoundPlayer</a><br />
+	<a href="#sprite">Sim::Sprite</a><br />
+	<a href="#textfield">Sim::TextField</a><br />
+	<a href="#textwriter">Sim::TextWrtier</a><br />
+	<a href="#timer">Sim::Timer</a><br />
+	<a href="#vector">Sim::Vector</a><br />
+<hr />
+
+<a name="#overview" />
+<h3>Overview</h3>
+This library is somthing I've been working on for some time. I decided to do it when I was working on my second SDL
+game. I realized that a lot of code I was writing was stuff I had already put in my first game. So SimLib was born.
+It is a set of totally independent C++ classes to assist writing SDL games.  Well, there is one exception to the "totally
+independant thing" and that is the Exception class. It is used by most parts.  I don't know why I'm writing this
+because the library is really nothing special, and I don't expect to many people to use it.
+But if I do find somebody who'll make use of it, I can say "ha ha I even have documentation!"
+<br /><br />
+Enjoy<br />
+Ian Finlayson
+<br />
+<a href="#top">Back to Top</a>
+<hr />
+
+<a name="#app" />
+<h3>Sim::App</h3>
+This is a class that just really initializes SDL and SDL_ttf.  I only wrote it because I had problems when I used
+global variables whose constructors needed SDL to be initialized. It always uses a software surface.<br />
+<pre>
+<font color="#008000">// Makes a window with width w, height h, possibly fullscreen with a title and possibly an icon</font>
+App( int w, int h, bool full, const char* title, const char* iconFile );
+	
+<font color="#008000">// Flips the buffers (actually there is no double buffering, but it has the same effect)</font>
+void Flip( );
+
+<font color="#008000">// Clears the Screen to the given color (256 rgb format)</font>
+void Clear( int r, int g, int b );
+
+<font color="#008000">// screen is public!</font>
+SDL_Surface* screen;
+</pre>
+<a href="#top">Back to Top</a>
+<hr />
+
+
+<a name="#button" />
+<h3>Sim::Button</h3>
+I am very proud of this class.  It represents a UI button.  It is very easy to use, but setting some of the parameters is
+a little tedious.<br />
+<pre>
+<font color="#008000">// That's a lot of parameters!  x and y are the upper left corner position. w and h are width and height
+// borderSize is in pixels. border_r etc represents the color of the border (values from 0-255)
+// The x and y offsets represent how far away the button's foreground is from the border (in pixels)
+// There is no protection against the foreground going past the border so be careful.</font>
+Button( int x, int y, int w, int h, int borderSize, int border_r, int border_g, int border_b,
+			 int x_offset, int y_offset );
+
+<font color="#008000">// You must call exactly one of these functions exactly once.  The first takes an SDL_Surface* which
+// it sets as the background image.  The second takes a color value as the background.</font>
+void SetBackGround( SDL_Surface* image );
+void SetBackGround( int r, int g, int b );
+
+<font color="#008000">// You must also call exactly one of these functions exactly once.  The first takes an SDL_Surface*
+// which is used as the foreground image (like an icon button thingy).  The second uses a text
+// foreground.  The first parameter is the actual text; the second is a pointer to a truetype font
+// (using SDL_ttf).  The last three parameters represent the color of the text.</font>
+void SetForeGround( SDL_Surface* image );
+void SetForeGround( char* text, TTF_Font* font, int fontR, int fontG, int fontB );
+
+<font color="#008000">// These next functions are how you make the button *work*.  They must be called when you get an
+// SDL_MOUSEBUTTONDOWN and SDL_MOUSEBUTTONUP event respectively.  You pass in the mouse coords
+// (event.button.x and event.button.y)  The second one returns true when the button was clicked.</font>
+void HandleMouseDown( int mx, int my );
+bool HandleMouseUp( int mx, int my );
+
+<font color="#008000">// This function draws the button to the screen parameter.</font>
+void Draw( SDL_Surface* screen );
+
+<font color="#008000">// I wrote this method when I wanted to change a 'pause' button to an 'unpause' button.</font>
+void ChangeButtonText( const char* text );
+</pre>
+<a href="#top">Back to Top</a>
+<hr />
+
+
+<a name="#exception" />
+<h3>Sim::Exception</h3>
+This is a very simple exception class thrown when somthing goes wrong with SimLib.  If you get "unhandled exception..."
+errors, just try catching these and call the write method.<br />
+<pre>
+<font color="#008000">// Constructor (in case you want to throw one yourself). The first parameter is a string signaling
+// where in the code the problem occured. The second is an explanation.</font>
+Exception( char* source, char* reason );
+
+<font color="#008000">// This method just writes the exception out to a file called "Error.txt"</font>
+void WriteError( );
+</pre>
+<a href="#top">Back to Top</a>
+<hr />
+
+
+<a name="#font" />
+<h3>Sim::Font</h3>
+I don't even know why I bothered to write this. I guess I just don't like having to do error checking or memory management.<br />
+<pre>
+<font color="#008000">// The font variable is a pointer to a TTF_Font. It is public.</font>
+TTF_Font* font;
+
+<font color="#008000">// The constructor just opens the font (if it can't load, it throws an exception)</font>
+Font( char* file_name, int size );
+</pre>
+<a href="#top">Back to Top</a>
+<hr />
+
+
+<a name="#functions" />
+<h3>Sim::Functions</h3>
+These are just disparate functions that I wanted to have.  They have nothing to do with eachother.
+<pre>
+<font color="#008000">// This function returns a vector of strings that is a list of all the file names
+// In the given directory. Right now there is only a windows implementation :(</font>
+std::vector< std::string > GetFiles( std::string directory );
+
+<font color="#008000">// This function does bounding box collision tests. It returns:
+// -1 if there was no collision
+// 0 if box A is to the east of box B
+// 1 if box A is to the north of box B
+// 2 if box A is to the west of box B
+// 3 if box A is to the south of box B
+// The error variable is how much the boxes can overlap (defaults to 0)</font>
+int Collide( SDL_Rect* a, SDL_Rect* b, int error=0 );
+</pre>
+<a href="#top">Back to Top</a>
+<hr />
+
+
+<a name="image" />
+<h3>Sim::Image</h3>
+This was the very first class I wrote. I just wanted to wrap up the error-checking and memory
+management code a little bit.
+<pre>
+<font color="#008000">// The image field is a public SDL_Surface*</font>
+SDL_Surface* image;
+
+<font color="#008000">// This constructor just sets the image to NULL</font>
+Image( );
+
+<font color="#008000">// This one loads the image (using IMG_Load) and sets it to the display format.</font>
+Image( char* filename );
+
+<font color="#008000">// This one loads it, sets the colorkey to the clear color specified
+// sets the display format.</font>
+Image( char* filename, int r_clear, int g_clear, int b_clear );
+
+<font color="#008000">// This one creates a new image that is a deep copy of the old one.
+// (you can safely dispose of the old one, and the copy will still work)</font>
+Image( SDL_Surface* other );
+
+<font color="#008000">// This is the copy constructor. It does the same thing as the above one, but for another Image</font>
+Image( const Image & copy );
+
+<font color="#008000">// The = is overloaded to do a deep copy as well.</font>
+Image operator=( const Image & rhs );
+
+<font color="#008000">// These methods were adapted from the SDL documentation. They are used to do per-pixel access.</font>
+Uint32 GetPixel( int x, int y );
+void SetPixel( int x, int y, Uint32 pixel );
+
+<font color="#008000">// These methods return new Images that are horizontal or vertical mirror images of this one.</font>
+Image GetMirroredX( );
+Image GetMirroredY( );
+</pre>
+<a href="#top">Back to Top</a>
+<hr />
+
+
+
+<a name="soundplayer" />
+<h3>Sim::SoundPlayer</h3>
+This class is a simple wrapper for SDL_Mixer. It handles both music and sound very easily (but you can't do much with it)
+I only have tested it with .ogg for music and .wav for sounds.
+<pre>
+<font color="#008000">// The constructor takes the number of sound files and the number of music files you will use
+// It stores them in arrays, so you should not try to add more or less than you tell it...</font>
+SoundPlayer( int numSounds, int numMusics );
+
+<font color="#008000">// These functions are used for adding  sound and music files to the SoundPlayer respectively
+// They return the index you can use to get the clip back (always 0,1,2,3,4...)</font>
+int AddMusic( char* file_name );
+int AddSound( char* file_name );
+
+<font color="#008000">// This method plays a sound that has been added to the SoundPlayer.
+// sound_index refers to the value returned by AddSound (the position it was added in)
+// loops is how many times it should repeat...</font>
+void PlaySound( int sound_index, int loops = 0 );
+
+<font color="#008000">// This method does the same thing but for a music clip. times refers to how many times
+// the music should play. The default, -1, means infinitely many times.
+void PlayMusic( int music_index, int times = -1 );</font>
+
+<font color="#008000">// This method is pretty self-explanatory.</font>
+void StopMusic( );
+
+<font color="#008000">// This method either pauses (pause=true) or unpauses (pause=false) the music.
+void SetMusicPause( bool pause );</font>
+
+<font color="#008000">// These methods set the music and sound volumes respectively. The parameters can
+// range from 0 to 127.</font>
+void SetMusicVolume( int music_vol );
+void SetSoundVolume( int sound_vol );
+</pre>
+<a href="#top">Back to Top</a>
+<hr />
+
+
+
+<a name="sprite" />
+<h3>Sim::Sprite</h3>
+This is a very complex class for using sprites in games.  It supports multiple animation and stuff like that.  The width
+and height must be the same for all animations.
+<pre>
+<font color="#008000">// The constructor takes the starting x,y position (of the top left corner), the width and the height
+// it also takes the number of animations to be added.  It is a good idea to actually give it that many :)</font>
+Sprite( int x, int y, int w, int h, int numAnimations );
+
+<font color="#008000">// This method registers an animation. An animation is a sequence of frames read from an image.
+// The sprite only makes a shallow copy of the image, so you must hold onto it.  The reason you pass the
+// image to this and not the constructor is that you can use Sim::Image::GetMirroredX to generate a copy
+// of the image that faces another way.  This is just more versatile.
+// x and y refer to the (x,y) position of the upper left corner of the first frame from the image
+// numFrames refers to how many frames are in this animation (can be 1)
+// left_to_right is an artifact of using X-flipped images. If you want the sprite to go left to right
+//		(IN THE IMAGE) then set this to true. Otherwise, false.
+// img is a pointer to the image used.
+// msTweenFlips is the number of milliseconds between changes in the animation.
+// motion refers to how the animation progresses. If true it's  1-2-3-4-3-2-1-2-3-4-3-2-1-2-3-4-3
+//		this is good for walking animations.
+//		If motion is false, it goes  1-2-3-4-1-2-3-4-1-2-3-4. This is for other stuff.
+// default frame refers to the frame the animation should be on as the idle frame.</font>
+void AddAnimation( int x, int y, int numFrames, bool left_to_right, SDL_Surface* img, 
+		unsigned int msTweenFlips, bool motion, int default_frame=0 );
+
+<font color="#008000">// This method sets the current animation. The parameter is the number you added it.
+// So the first animation you added is 0, then 1, then 2 etc... (I make these consts)</font>
+void SetAnimation( int anim );
+
+<font color="#008000">// This is somthing I added when doing a Pac-Man clone. It returns the current
+// animation number. Should not really be necesarry.</font>
+int GetAnimation( );
+
+<font color="#008000">// This method must be called each frame. It updates the position and animation.</font>
+void Update( );
+
+<font color="#008000">// This method must be called each frame (duh). It draws the sprite to the screen.</font>
+void Draw( SDL_Surface* screen );
+
+<font color="#008000">// These are simple get/set methods for the velocity.</font>
+void SetDx( float dx );
+float GetDx( );
+void SetDy( float dy );
+float GetDy( );
+void SetMovement( float dx, float dy );
+
+<font color="#008000">// This method returns the sprites position as an SDL_Rect.</font>
+SDL_Rect GetPosition( );
+
+<font color="#008000">// This method sets the sprites position.</font>
+void SetPosition( int x, int y );
+
+<font color="#008000">// This method either pauses (pause=true) or unpauses (pause=false) the animation.</font>
+void SetPause( bool pause );
+</pre>
+<a href="#top">Back to Top</a>
+<hr />
+
+
+
+<a name="textfield" />
+<h3>Sim::TextField</h3>
+This is a pretty neat class for getting string user input.  It looks like: <input type="text">.
+<pre>
+<font color="#008000">// I know; it's a lot of arguments. x and y refer to the (x,y) coords of the upper
+// left hand corner. w and h refer to the width and height.
+// borderSize refers to the size of the border in pixels.
+// border_, border_g, and border_b refer to the color of the border (in 0-255 rgb)
+// Font is a pointer to a truetype font (using SDL_ttf)
+// maxLength is the max letters they can type. (This is because there is no wrap feature)
+// back_r, back_g, and back_b refer to the background color.
+// text_r, text_g and text_b refer to the text color.
+// The x and y offset refer to the number of pixels in from the top left the text starts at.
+// start_text is the default text at the start.
+// key_repeat is whether or not to call SDL_EnableKeyRepeat. This is suggested.</font>
+TextField( int x, int y, int w, int h, int borderSize, int bord_r, int bord_g, int bord_b,
+		TTF_Font* Font, int maxLength, int back_r, int back_g, int back_b, int text_r, 
+		int text_g, int text_b, int x_offset, int y_offset, char* start_text, bool key_repeat );
+
+<font color="#008000">// These functions must be called on SDL_MOUSEBUTTONDOWN and
+SDL_MOUSEBUTTONUP events respectively.  The arguments are the mouse coords.</font>
+void HandleMouseDown( int mX, int mY );
+void HandleMouseUp( int mX, int mY );
+
+<font color="#008000">// This must be called on SDL_KEYDOWN. It returns whether or not the key
+// was enter (so if you want that, you can get it).
+// You pass the keysym (event.key.keysym)</font>
+bool HandleKeyDown( SDL_keysym keysym );
+
+<font color="#008000">// This draws the text field to the screen.</font>
+void Draw( SDL_Surface* );
+
+<font color="#008000">// This returns what the user has typed.</font>
+std::string GetText( );
+
+<font color="#008000">// This returns whether the field has focus.</font>
+bool IsActive( );
+</pre>
+<a href="#top">Back to Top</a>
+<hr />
+
+
+<a name="textwriter" />
+<h3>Sim::TextWriter</h3>
+This is a way to wrap up using SDL_ttf and is an array to hold fonts in.
+<pre>
+<font color="#008000">// You must tell it how many fonts to add in the constructor.</font>
+TextWriter( int numFonts );
+
+<font color="#008000">// You add a font by passing the file name and the font size
+// Returned is the index into the array (I make these consts)</font>
+int AddFont( char* font_name, int size );
+
+<font color="#008000">// You can retrieve the fonts for use in buttons, textfields etc.
+// You pass the font_index given by AddFont (it's the order you put them in)</font>
+TTF_Font* GetFont( int font_index );
+
+<font color="#008000">// This WriteText draws the given text with the given font_index
+// to the screen at (x,y).  fr, fg, and fb are the foreground colors.
+// You should use this version when there is no solid background color.
+// (Like when writing over images etc.)</font>
+void WriteText( SDL_Surface* screen, int font_index, char* text, 
+			int x, int y, int fr, int fg, int fb );
+
+<font color="#008000">// This version is the same as the above except that we give it the
+// backgorund color.  This is more efficient and should be used when you can.</font>
+void WriteText( SDL_Surface* screen, int font_index, char* text, int x, int y,
+			int fr, int fg, int fb, int br, int bg, int bb );
+
+<font color="#008000">// These methods are for using fonts that are not in the array.
+// Here we pass the font_file name and size instead of the index.
+// These ar dog slow because the fonts must be read of the hard drive.
+// This is NOT reccomended for games. There is one for blended backgrounds
+// and one for solid backgrounds.</font>
+static void WriteText( SDL_Surface* screen, char* font_file, int size, char* text, 
+			int x, int y, int fr, int fg, int fb );
+static void WriteText( SDL_Surface* screen, char* font_file, int size, char* text,
+			int x, int y, int fr, int fg, int fb, int br, int bg, int bb );
+</pre>
+<a href="#top">Back to Top</a>
+<hr />
+
+
+<a name="timer" />
+<h3>Sim::Timer</h3>
+This timer class is a very simple way to calculate FPS and to figure out how much time has past between frames.
+<pre>
+<font color="#008000">// This must be called each frame. Updates the timer's values.</font>
+void Update( );
+
+<font color="#008000">// Returns the average frames per second.</font>
+unsigned int GetFPS( );
+
+<font color="#008000">// Returns the number of milliseconds that have elapsed since last frame.</font>
+unsigned int GetMSsinceLastFrame( );
+
+<font color="#008000">// This pauses the timer (pause=true) or unpauses the timer (pause=false).
+// This will cause GetMSsinceLastFrame to return 0.  This way, your game entities
+// that depend on the timer will automatically be paused because they will
+// think that no time has elapsed! (Assuming time-based motion).</font>
+void SetPause( bool pause );
+</pre>
+<a href="#top">Back to Top</a>
+<hr />
+
+
+
+<a name="vector" />
+<h3>Sim::Vector</h3>
+This vector class represents a mathematical vector. It is templated so that the vector can be any data type
+(technically any data type that supports basic math operators) and any dimension.
+<pre>
+<font color="#008000">// They are created like so:</font>
+Sim::Vector&lt;float, 2&gt; vec;
+
+<font color="#008000">// You can also give starting values for 2 or 3 dimensions:</font>
+Sim::Vector&lt;float, 2&gt; vec( 2.4, 3.6 );
+
+<font color="#008000">// You can access the elements with the [] operator. (lvalue and rvalue)
+// We also define the constants X, Y, and Z for common stuff.</font>
+vec1[X] = vec2[Y];
+
+<font color="#008000">// This method returns the magnitude of the vector. (type is whatever datatype you use.)</font>
+type Magnitude( );
+
+<font color="#008000">// This method normalizes the vector (sets the magnitude to 1)</font>
+void Normalize( );
+
+<font color="008000">// We define operators to do:</font>
+vec1 = vec2 + vec3;
+vec1 = vec2 - vec3;
+vec1 = -vec2;
+vec1 = vec2 * 7;
+vec1 = vec2 / 3;
+vec1 = vec2;
+
+type scalar = vec1 % vec2;	// Dot product
+
+vec1 = vec2 ^ vec3;		// Cross product
+</pre>
+<a href="#top">Back to Top</a>
+<hr />
+
+<br />
+Well that is all. If you have any comments or questions or bugs, please e-mail me at finlaysoni (at) gmail (dot) com.
+I would be pleasantly suprised if anybody actually did!
+
+
+
+</td></tr>
+</table><br /><br />
+</body>
+
+</html>

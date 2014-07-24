@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:background="@drawable/background"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content">
+  <ImageView android:id="@+id/ImageView01" 
+	android:src="@drawable/title"
+	android:layout_width="wrap_content" 
+	android:layout_height="wrap_content"></ImageView>
+  
+<TableLayout android:id="@+id/TableLayout01" 
+	android:layout_gravity="center"
+	android:layout_width="wrap_content" 
+	android:layout_height="wrap_content">
+	<TableRow android:id="@+id/TableRow01" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content">
+		<TextView android:text="Supply Box Rate:" 
+  			android:id="@+id/TextView01"
+  			android:textColor="#ffffff"
+  			android:textSize="16px" 
+  			android:layout_gravity="center"
+  			android:layout_width="wrap_content" 
+  			android:layout_height="wrap_content"></TextView>
+  	 	<Spinner android:id="@+id/opt_drop_rate" 
+  			android:layout_width="wrap_content" 
+  			android:layout_height="wrap_content"></Spinner>
+	</TableRow>
+	<TableRow android:id="@+id/TableRow02" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content">
+		<CheckBox android:text="Grenades" 
+  			android:id="@+id/opt_grenades" 
+  			android:layout_width="wrap_content" 
+  			android:layout_height="wrap_content"></CheckBox>
+		
+		<CheckBox android:text="Cloaks" 
+  			android:id="@+id/opt_cloking" 
+  			android:layout_width="wrap_content" 
+  			android:layout_height="wrap_content"></CheckBox>
+	</TableRow>
+	<TableRow android:id="@+id/TableRow03" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content">
+		<CheckBox android:text="Launchers" 
+  			android:id="@+id/opt_launchers" 
+  			android:layout_width="wrap_content" 
+  			android:layout_height="wrap_content"></CheckBox>
+		
+		<CheckBox android:text="Radar" 
+  			android:id="@+id/opt_radar" 
+  			android:layout_width="wrap_content" 
+  			android:layout_height="wrap_content"></CheckBox>
+	</TableRow>
+	<TableRow android:id="@+id/TableRow04" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content">
+		<CheckBox android:text="Mortars" 
+  			android:id="@+id/opt_mortars" 
+  			android:layout_width="wrap_content" 
+  			android:layout_height="wrap_content"></CheckBox>
+		
+		<CheckBox android:text="Armor" 
+  			android:id="@+id/opt_armor" 
+  			android:layout_width="wrap_content" 
+  			android:layout_height="wrap_content"></CheckBox>
+	</TableRow>
+	<TableRow android:id="@+id/TableRow05" 
+		android:layout_width="wrap_content" 
+		android:layout_height="wrap_content">
+		<CheckBox android:text="Mines" 
+  			android:id="@+id/opt_mines" 
+  			android:layout_width="wrap_content" 
+  			android:layout_height="wrap_content"></CheckBox>
+		
+		<CheckBox android:text="CheckBox01" 
+  			android:id="@+id/CheckBox08" 
+  			android:visibility="gone"
+  			android:layout_width="wrap_content" 
+  			android:layout_height="wrap_content"></CheckBox>
+	</TableRow>
+
+</TableLayout>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="horizontal"
+  android:layout_gravity="center"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content">
+  <Button android:text="Set" 
+			android:id="@+id/opt_set" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"></Button>
+		<Button android:text="Reset" 
+			android:id="@+id/opt_reset" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"></Button>
+		<Button android:text="Cancel" 
+			android:id="@+id/opt_cancel" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"></Button>
+</LinearLayout>
+</LinearLayout>

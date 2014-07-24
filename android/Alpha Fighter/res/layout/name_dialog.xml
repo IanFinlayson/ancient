@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal" android:background="#fff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="300sp" android:minHeight="150sp">
+
+
+
+
+
+<TextView android:id="@+id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#000" android:text="Player 1 Enter Your Name:" android:textSize="17sp"></TextView>
+<TextView android:text="TextView02" android:id="@+id/TextView02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#fff"></TextView><EditText android:text="EditText01" android:id="@+id/EditText01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:minWidth="200sp" android:layout_marginLeft="50sp"></EditText>
+
+<Button android:id="@+id/Button01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Submit" android:minWidth="100sp" android:layout_marginLeft="100sp"></Button>
+
+</LinearLayout>

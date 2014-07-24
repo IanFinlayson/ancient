@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center_horizontal" android:background="@drawable/bg">
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:textColor="#000" android:text="Tic-Tac-Toe" android:textSize="20sp" android:layout_gravity="center_horizontal" android:paddingLeft="100sp" android:paddingBottom="20sp" android:paddingTop="10sp"/>
+
+
+
+
+
+
+<LinearLayout android:id="@+id/LinearLayout01" android:layout_width="wrap_content" android:layout_height="wrap_content">
+<ImageButton android:id="@+id/ImageButton01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="107sp" android:minWidth="107sp" android:maxHeight="107sp" android:maxWidth="107sp"></ImageButton>
+<ImageButton android:id="@+id/ImageButton02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="107sp" android:minWidth="107sp" android:maxHeight="107sp" android:maxWidth="107sp"></ImageButton>
+<ImageButton android:id="@+id/ImageButton03" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="107sp" android:minWidth="107sp" android:maxHeight="107sp" android:maxWidth="107sp"></ImageButton>
+</LinearLayout>
+<LinearLayout android:id="@+id/LinearLayout02" android:layout_width="wrap_content" android:layout_height="wrap_content"><ImageButton android:id="@+id/ImageButton04" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxHeight="107sp" android:maxWidth="107sp" android:minHeight="107sp" android:minWidth="107sp"></ImageButton>
+<ImageButton android:id="@+id/ImageButton05" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxHeight="107sp" android:maxWidth="107sp" android:minHeight="107sp" android:minWidth="107sp"></ImageButton>
+<ImageButton android:id="@+id/ImageButton06" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxHeight="107sp" android:maxWidth="107sp" android:minHeight="107sp" android:minWidth="107sp"></ImageButton>
+</LinearLayout>
+<LinearLayout android:id="@+id/LinearLayout03" android:layout_width="wrap_content" android:layout_height="wrap_content"><ImageButton android:id="@+id/ImageButton07" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxHeight="107sp" android:maxWidth="107sp" android:minHeight="107sp" android:minWidth="107sp"></ImageButton>
+<ImageButton android:id="@+id/ImageButton08" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="107sp" android:maxHeight="107sp" android:minHeight="107sp" android:minWidth="107sp"></ImageButton>
+<ImageButton android:id="@+id/ImageButton09" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxHeight="107sp" android:maxWidth="107sp" android:minHeight="107sp" android:minWidth="107sp"></ImageButton>
+</LinearLayout>
+<TextView android:text="TextView01" android:id="@+id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#000" android:layout_marginLeft="25sp"></TextView>
+</LinearLayout>

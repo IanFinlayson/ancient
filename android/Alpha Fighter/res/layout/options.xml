@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg">
+
+
+
+
+
+
+
+
+
+
+
+
+<TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Alpha Fighter" android:textSize="24sp" android:layout_marginLeft="85sp" android:layout_marginBottom="20sp" android:textColor="#0f0"/><TextView android:id="@+id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Input System" android:textColor="#fff"></TextView><RadioGroup android:id="@+id/RadioGroup01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="30sp">
+<RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tilt Sensors" android:id="@+id/tilit_input" android:checked="true"></RadioButton><RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Track Ball" android:id="@+id/trk_input" android:checked="false"></RadioButton>
+</RadioGroup><TextView android:id="@+id/TextView02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sound and Music" android:textColor="#fff"></TextView><CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/snd_output" android:text="Sound Effects" android:checked="true"></CheckBox>
+
+
+<CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Game Music" android:id="@+id/music_output" android:checked="true"></CheckBox>
+</LinearLayout>
