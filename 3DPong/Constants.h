@@ -38,7 +38,6 @@ const float PADDLE_SPEED_INSANE = 1000.0f;
 
 // These variables are global...
 extern bool FULL_SCREEN;
-extern bool SOUND_ON;
 
 extern float BALL_RADIUS;
 extern float BALL_SPEED;

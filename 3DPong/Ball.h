@@ -4,8 +4,7 @@
 #ifndef BALL_H
 #define BALL_H
 
-#include <windows.h>
-#include <GL/glu.h>
+#include <GLFW/glfw3.h>
 
 #include "Vector.h"
 
@@ -31,3 +30,5 @@ public:
 	void Draw( );
 };
 #endif
+
+

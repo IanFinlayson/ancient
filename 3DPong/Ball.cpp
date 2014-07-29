@@ -1,9 +1,7 @@
 // Ball.cpp
 // Ian Finlayson
 
-#include <windows.h>
-#include <GL/gl.h>
-#include <GL/glu.h>
+#include <GLFW/glfw3.h>
 
 #include "Constants.h"
 #include "Ball.h"
@@ -50,7 +48,6 @@ bool Ball::Update( float elapsed_time )
 	if( (position[Z] - BALL_RADIUS) < BACK_Z )
 	{
 		velocity[Z] = abs( velocity[Z] );
-		if( SOUND_ON ) Beep( 750, 10 );
 	}
 	// The 250 is so the ball is much past the back...
 	else if( position[Z] > (FRONT_Z+250) )
@@ -63,24 +60,20 @@ bool Ball::Update( float elapsed_time )
 	if( (position[X] - BALL_RADIUS) < -WINDOW_WIDTH/2.0f )
 	{
 		velocity[X] = abs( velocity[X] );
-		if( SOUND_ON ) Beep( 750, 10 );
 	}
 	else if( (position[X] + BALL_RADIUS) > WINDOW_WIDTH/2.0f )
 	{
 		velocity[X] = -abs( velocity[X] );
-		if( SOUND_ON ) Beep( 750, 10 );
 	}
 
 	// Check top/bottom collisions
 	if( (position[Y] - BALL_RADIUS) < -WINDOW_HEIGHT/2.0f )
 	{
 		velocity[Y] = abs( velocity[Y] );
-		if( SOUND_ON ) Beep( 750, 10 );
 	}
 	else if( (position[Y] + BALL_RADIUS) > WINDOW_HEIGHT/2.0f )
 	{
 		velocity[Y] = -abs( velocity[Y] );
-		if( SOUND_ON ) Beep( 750, 10 );
 	}
 
 	// Check paddle collision
@@ -95,13 +88,11 @@ bool Ball::Update( float elapsed_time )
 				if( position[Z] < paddle_pos[Z] )	// paddle hit ball in proper direction
 				{
 					velocity[Z] = -abs( velocity[Z] );
-					if( SOUND_ON ) Beep( 750, 10 );
 					bounces++;
 				}
 				else	// paddle hit ball backwars (stupid)
 				{
 					velocity[Z] = abs( velocity[Z] );
-					if( SOUND_ON ) Beep( 750, 10 );
 				}
 			}
 		}

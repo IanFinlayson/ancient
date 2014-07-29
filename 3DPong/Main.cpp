@@ -7,9 +7,7 @@
 
 #include <cstdio>	// For sprintf
 
-#include <windows.h>
-#include <GL/gl.h>
-#include <GL/glu.h>
+#include <GLFW/glfw3.h>
 
 #include "Constants.h"
 #include "Window.h"

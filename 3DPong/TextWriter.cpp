@@ -1,9 +1,7 @@
 // TextWriter.cpp
 // Ian Finlayson
 
-#include <windows.h>
-#include <GL/gl.h>
-#include <GL/glu.h>
+#include <GLFW/glfw3.h>
 
 #include "Window.h"
 #include "TextWriter.h"
