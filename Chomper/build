@@ -1,0 +1,4 @@
+#!/bin/sh
+
+g++ *.cpp -lSDL -lSDL_ttf -lSDL_image -lSDL_mixer -o chomper
+
