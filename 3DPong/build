@@ -1,4 +1,0 @@
-#!/bin/sh
-
-g++ *.cpp `pkg-config --cflags glfw3` `pkg-config --static --libs glfw3` -o 3DPong
-

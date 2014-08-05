@@ -6,8 +6,7 @@
 // about SDL, or game design in general. Here's one hint - 
 // Plan all the features from the begining!!! Not doing this
 // was a mistake I made, and it's one reason this code is
-// so messy in places. This program is under the GNU GPL meaning
-// you are free to alter it and copy it however you like. Enjoy
+// so messy in places. This program is under the MIT
 
 #include <time.h>
 #include <sstream>
@@ -333,7 +332,6 @@ void Intro()
 	f.r = f.g = f.b = 0;		//Black fore ground
 	b.r = b.g = b.b = 255;		//White background
 
-	PrintText( "CBdata/arial.ttf", "www.angelfire.com/droid/simian", 50, 200, 12, f, b );
 	PrintText( "CBdata/adlib.ttf", "PRESENTS...", 45, 225, 25, f, b );
 
 	SDL_Flip( screen );
@@ -484,7 +482,7 @@ void Help()
 			PrintText( "CBdata/arial.ttf", "Press 'p' to pause the game"                , 12, 120, 12, red, white );
 
 			PrintText( "CBdata/arial.ttf", "Crazy Blocks is Copyright Ian Finlayson 2005", 12, 150, 12, red, white );
-			PrintText( "CBdata/arial.ttf", "Under the GNU General Public License"        , 12, 170, 12, red, white );
+			PrintText( "CBdata/arial.ttf", "Licensed under the MIT License"        , 12, 170, 12, red, white );
 			PrintText( "CBdata/arial.ttf", "Art by Caitie Cihak"                         , 12, 190, 12, red, white );
 
 			PrintText( "CBdata/arial.ttf", "Press Enter To Proceed to the Game", 12, 220, 12, red, white );

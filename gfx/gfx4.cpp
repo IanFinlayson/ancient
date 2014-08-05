@@ -19,7 +19,7 @@
 
 /* Allows the speed of the app to be changed in one place 
    (My computer at home is *much* slower than those in the labs */
-#define SPEED 0.5
+#define SPEED 10.0
 
 
 /* global transformation amounts */

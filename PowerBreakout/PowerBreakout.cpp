@@ -226,7 +226,6 @@ void Intro( )
 
 	SDL_BlitSurface( logo, NULL, screen, &dest );
 	
-	PrintText( "PBdata/arial.ttf", "http://www.angelfire.com/droid/simian", 255, 265, 14, 0, 0, 0, 255, 255, 255 );
 	PrintText( "PBdata/adlib.ttf", "Presents...", 250, 295, 28, 0, 0, 0, 255, 255, 255 );
 
 
@@ -343,7 +342,7 @@ void Help( )
 
 	PrintText( "Use the mouse to control the paddle - Don't let the ball pass you!", 75, 220, 255, 255, 255, 0, 0, 0 );
 	PrintText( "Prees \'p\' to pause the game or escape to quit at any time"       , 75, 240, 255, 255, 255, 0, 0, 0 );
-	PrintText( "Copyright Ian Finlayson 2005 - Released under the GNU general public license", 75, 260, 255, 255, 255, 0, 0, 0 );
+	PrintText( "Copyright Ian Finlayson 2005 - Released under the MIT License", 75, 260, 255, 255, 255, 0, 0, 0 );
 	PrintText( "Art by Caitie Cihak"                                                         , 75, 280, 255, 255, 255, 0, 0, 0 );
 
 	PrintText( "Press Enter to return to Menu", 75, 330, 255, 255, 255, 0, 0, 0 );

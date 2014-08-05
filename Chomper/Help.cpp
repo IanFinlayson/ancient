@@ -71,7 +71,7 @@ Chomp::GameState Chomp::Help( SDL_Surface* screen )
 		tw.WriteText( screen, SANS_16, "pellet, the ghosts will turn blue, and you will be able to eat them! How the tables have turned! You also have", 15, 150, 255,255,255, 0,0,0 );
 		tw.WriteText( screen, SANS_16, "speed burst pellets and extra life pellets. You must navigate the maze with the arrow keys, collecting every", 15, 175, 255,255,255, 0,0,0 );
 		tw.WriteText( screen, SANS_16, "pellet as you go. If you make it fast enough, you will get a point bonus added to your score. Good Luck!", 15, 200, 255,255,255, 0,0,0 );
-		tw.WriteText( screen, SANS_16, "Chomper is Copyright Ian Finlayson 2005, released under the GPL.  Enjoy!", 15, 225, 255,255,255, 0,0,0 );
+		tw.WriteText( screen, SANS_16, "Chomper is Copyright Ian Finlayson 2005, released under the MIT.  Enjoy!", 15, 225, 255,255,255, 0,0,0 );
 
 		ok.Draw( screen );
 		quit.Draw( screen );
